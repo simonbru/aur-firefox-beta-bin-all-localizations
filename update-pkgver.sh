@@ -8,5 +8,6 @@ echo
 echo -n Next version number: 
 read version
 sed -i "s/pkgver=.*/pkgver=${version}/"  PKGBUILD
+sed -i "s/pkgrel=.*/pkgrel=1/"  PKGBUILD
 mksrcinfo
 git commit PKGBUILD .SRCINFO -m "update to ${version}"
