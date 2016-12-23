@@ -10,8 +10,9 @@ git pull
 echo Last Revisions:
 git log --format=oneline | head -n3
 echo
+preselection="$(last_version)"
 echo 'Next version number:'
-read -e -i "$(last_version)" version
+read -e -i "$preselection" version
 sed -i "s/pkgver=.*/pkgver=${version}/"  PKGBUILD
 sed -i "s/pkgrel=.*/pkgrel=1/"  PKGBUILD
 mksrcinfo
