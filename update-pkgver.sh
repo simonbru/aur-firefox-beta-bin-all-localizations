@@ -2,7 +2,7 @@
 
 last_version() {
     curl -s https://brulhart.me/rss-bridge/\?action\=display\&bridge\=MozillaFirefoxReleasesBridge\&format\=JsonFormat \
-    | jq -r '.[0].title'
+    | jq -r '.items[0].title' || true
 }
 
 cd "$(dirname "$0")/.."
