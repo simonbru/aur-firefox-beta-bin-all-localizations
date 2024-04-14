@@ -6,7 +6,7 @@ _pkgname=firefox-beta
 pkgdesc='Perl script for installing latest FF beta in the language of your choice'
 url='https://www.mozilla.com/firefox/channel/#beta'
 pkgver=125.0rc1
-pkgrel=1
+pkgrel=2
 arch=('i686' 'x86_64')
 license=('MPL' 'GPL' 'LGPL')
 depends=('gtk3' 'libxt' 'dbus-glib' 'nss')
@@ -30,7 +30,7 @@ package() {
   mkdir -p "${pkgdir}"/usr/{lib,bin,share/applications}
 
   cp -r firefox "${pkgdir}/usr/lib/${_pkgname}"
-  install -m644 "${srcdir}/policies.json" -D -t "${pkgdir}/usr/lib/${_pkgname}/policies/"
+  install -m644 "${srcdir}/policies.json" -D -t "${pkgdir}/usr/lib/${_pkgname}/distribution/"
   install -m755 "${srcdir}/firefox-beta.sh" "${pkgdir}/usr/bin/firefox-beta"
 
   # Use system-provided dictionaries and hyphenation
@@ -50,4 +50,4 @@ package() {
 md5sums=('4c0ca11a8034b53c0c5b7b9830442cd7'
          'b4d5afd97c8ac229f6027d7853c73c0c'
          '68c9e357994d714b25f91be9db2a8594'
-         '52dd66218eaa583c70790fde3bf74045')
+         '2756ce31c6f1fbabd237a268f4339155')
