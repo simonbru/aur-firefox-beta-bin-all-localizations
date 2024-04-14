@@ -11,6 +11,7 @@ pkgbase = firefox-beta-bin-all-localizations
 	makedepends = perl-file-slurp
 	makedepends = perl-lwp-protocol-https
 	makedepends = perl-switch
+	depends = alsa-lib
 	depends = gtk3
 	depends = libxt
 	depends = dbus-glib
