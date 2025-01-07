@@ -236,13 +236,13 @@ if (!$BUILD) {
 }
 
 ##Downloading firefox##
-my $ff_destname = "firefox-${FULLVER}.tar.bz2";
-my $ff_bz2 = "firefox-${VER}.tar.bz2";
+my $ff_destname = "firefox-${FULLVER}.tar.xz";
+my $ff_xz = "firefox-${VER}.tar.xz";
 if (! -e $ff_destname) {
     # Use HTTP because it downloads much faster in practice.
     # This is not a security issue because checksums are downloaded via HTTPS.
     my $ff_url = URI->new('http://releases.mozilla.org');
-    my $ff_path = "${ff_basepath}/linux-${ARCH}/${LANG}/${ff_bz2}";
+    my $ff_path = "${ff_basepath}/linux-${ARCH}/${LANG}/${ff_xz}";
     $ff_url->path($ff_path);
     get_url( $ff_url, $ff_destname ) or die qq(:: ERROR - can't download $ff_destname\n);
 } else {
@@ -263,7 +263,7 @@ if (! -e $checksums_fname) {
 say ':: verifying sha512 checksum ... ';
 
 my @sha512_file = read_file($checksums_fname);
-my $search_string = "linux-${ARCH}/${LANG}/${ff_bz2}";
+my $search_string = "linux-${ARCH}/${LANG}/${ff_xz}";
 my $sha512s;
 for (@sha512_file)
 {
